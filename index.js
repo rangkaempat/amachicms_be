@@ -16,6 +16,8 @@ let queue = [
   // { id: uuidv4(), name: "Maya Haris", partySize: 4, joinedAt: new Date(Date.now() - 4 * 60000), phoneNumber: "456" },
 ];
 
+let currentQueueNumber = 1; // Start static queue number
+
 // --- API Endpoints ---
 
 // GET current queue
@@ -48,7 +50,9 @@ app.post("/api/queue", (req, res) => {
     phoneNumber,
     partySize: parseInt(partySize),
     joinedAt: new Date(),
+    queueNumber: currentQueueNumber++,
   };
+
   queue.push(newEntry);
   console.log("Added to queue:", newEntry);
   res.status(201).json(newEntry);
