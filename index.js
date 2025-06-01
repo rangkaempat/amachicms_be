@@ -66,6 +66,12 @@ app.delete("/api/queue/:id", (req, res) => {
 
   if (queue.length < initialLength) {
     console.log("Served and removed from queue, ID:", id);
+
+    if (queue.length === 0) {
+      currentQueueNumber = 1;
+      console.log("Queue is empty. Resetting currentQueueNumber to 1");
+    }
+
     res
       .status(200)
       .json({ message: "Successfully served and removed from queue." });
