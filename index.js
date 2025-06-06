@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 5001;
 // Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", // ✅ Match the exact frontend URL
+    origin: process.env.FRONTEND_URL, // ✅ Match the exact frontend URL
     credentials: true, // ✅ Allows cookies in requests
   })
 );
@@ -24,4 +24,5 @@ app.use("/api/user", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Backend server running on http://localhost:${PORT}`);
+  console.log(process.env.FRONTEND_URL);
 });
