@@ -27,12 +27,13 @@ const login = async (req, res) => {
     // Set JWT as an HTTP-only cookie
     res.cookie("token", token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax",
+      secure: true,
+      sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     // ✅ Include token in the response
+    console.log(token);
     res.status(200).json({ message: "Login successful", user });
   } catch (error) {
     res.status(401).json({ error: error.message });
