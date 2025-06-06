@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
@@ -15,9 +16,5 @@
     "sequelize": "^6.37.7",
     "twilio": "^5.6.1",
     "uuid": "^11.1.0"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
   }
 }
